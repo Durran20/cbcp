@@ -11,6 +11,24 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormGroup from "@mui/material/FormGroup";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
+import { createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      light: "#757ce8",
+      main: "#3f50b5",
+      dark: "#002884",
+      contrastText: "#fff",
+    },
+    secondary: {
+      light: "#EFFFFD",
+      main: "#f44336",
+      dark: "#ba000d",
+      contrastText: "#000",
+    },
+  },
+});
 
 export default function Navbar({ toggleDrawer }) {
   const [auth, setAuth] = React.useState(true);
@@ -30,20 +48,24 @@ export default function Navbar({ toggleDrawer }) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" sx={{ bgcolor: "#EFFFFD" }}>
         <Toolbar>
           <IconButton
             onClick={toggleDrawer()}
             size="large"
             edge="start"
-            color="inherit"
+            // color="inherit"
             aria-label="menu"
             sx={{ mr: 2 }}
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            Photos
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1, color: "#002884" }}
+          >
+            Dashboard
           </Typography>
           {auth && (
             <div>
@@ -53,7 +75,7 @@ export default function Navbar({ toggleDrawer }) {
                 aria-controls="menu-appbar"
                 aria-haspopup="true"
                 onClick={handleMenu}
-                color="inherit"
+                // color="inherit"
               >
                 <AccountCircle />
               </IconButton>

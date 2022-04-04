@@ -12,23 +12,13 @@ import MailIcon from "@mui/icons-material/Mail";
 export default function Sidebar({ toggleDrawer, toggle }) {
   const list = (anchor) => (
     <Box
-      sx={{ width: 250 }}
+      sx={{ width: 250, bgcolor: "#EFFFFD" }}
       role="presentation"
       onClick={toggleDrawer()}
       onKeyDown={toggleDrawer()}
     >
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
+        {["Home", "Profile", "Schedule", "Fee Payment"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -43,7 +33,7 @@ export default function Sidebar({ toggleDrawer, toggle }) {
   return (
     <div>
       {["left"].map((anchor) => (
-        <React.Fragment key={anchor}>
+        <React.Fragment key={anchor} sx={{ bgcolor: "#EFFFFD" }}>
           <Drawer anchor={anchor} open={toggle} onClose={toggleDrawer()}>
             {list(anchor)}
           </Drawer>
