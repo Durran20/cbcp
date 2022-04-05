@@ -6,8 +6,11 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import DashboardIcon from "@mui/icons-material/Dashboard";
+import CurrencyRupeeIcon from "@mui/icons-material/CurrencyRupee";
+import SchoolIcon from "@mui/icons-material/School";
+import PersonIcon from "@mui/icons-material/Person";
+import WatchLaterIcon from "@mui/icons-material/WatchLater";
 
 export default function Sidebar({ toggleDrawer, toggle }) {
   const list = (anchor) => (
@@ -17,15 +20,48 @@ export default function Sidebar({ toggleDrawer, toggle }) {
       onClick={toggleDrawer()}
       onKeyDown={toggleDrawer()}
     >
-      <List>
+      {/* <List>
         {["Home", "Profile", "Schedule", "Fee Payment"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+              {index % 2 === 0 ? <InboxIcon /> : <DashboardIcon />}
             </ListItemIcon>
             <ListItemText primary={text} />
           </ListItem>
         ))}
+      </List> */}
+
+      <List>
+        <ListItem button>
+          <ListItemIcon>
+            <DashboardIcon />
+          </ListItemIcon>
+          <ListItemText primary="Dashboard" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <SchoolIcon />
+          </ListItemIcon>
+          <ListItemText primary="Home" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <PersonIcon />
+          </ListItemIcon>
+          <ListItemText primary="Profile" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <WatchLaterIcon />
+          </ListItemIcon>
+          <ListItemText primary="Schedule" />
+        </ListItem>
+        <ListItem button>
+          <ListItemIcon>
+            <CurrencyRupeeIcon />
+          </ListItemIcon>
+          <ListItemText primary="Fee Payment" />
+        </ListItem>
       </List>
     </Box>
   );
